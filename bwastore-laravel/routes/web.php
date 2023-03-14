@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,7 @@ Route::prefix('admin')
         Route::get('/', [DashboardController::class, 'index'])->name('admin-dashboard');
         Route::resource('category', CategoryController::class);
         Route::resource('user', UserController::class);
+        Route::resource('product', ProductController::class);
     });
 
 Auth::routes();
