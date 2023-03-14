@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Dashboard
+    User - Edit
 @endsection
 @section('content')
 <div
@@ -10,8 +10,8 @@
           >
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">Categories</h2>
-                <p class="dashboard-subtitle">Edit Categories</p>
+                <h2 class="dashboard-title">User</h2>
+                <p class="dashboard-subtitle">Edit User</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">
@@ -27,20 +27,37 @@
                         @endif
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('category.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('user.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                     @method('PUT')
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Nama Kategori</label>
-                                                <input type="text" name="name" class="form-control" value="{{ $item->name }}" required>
+                                                <label>Nama User</label>
+                                                <input type="text" name="name" class="form-control"  value="{{ $item->name }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Foto</label>
-                                                <input type="file" name="photo" class="form-control">
+                                                <label>Email User</label>
+                                                <input type="email" name="email" class="form-control" value="{{ $item->email }}" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Password User</label>
+                                                <input type="password" name="password" class="form-control">
+                                                <small>Kosongkan jika tidak ingin mengganti password</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Roles</label>
+                                                <select name="roles" required class="form-control">
+                                                    <option value="{{ $item->roles }}" selected >Tidak Diganti</option>
+                                                    <option value="ADMIN">Admin</option>
+                                                    <option value="USER">User</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

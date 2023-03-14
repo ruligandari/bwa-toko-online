@@ -113,10 +113,16 @@ class UserController extends Controller
     public function update(UserRequest $request, $id)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
-        $data['photo'] = $request->file('photo')->store('assets/category', 'public');
 
         $item = User::findOrFail($id);
+        if($request->password)
+        {
+
+            $data['password'] = bcrypt($request->password);
+        } else {
+            unset($data['password']);
+        }
+        
         $item->update($data);
 
         return redirect()->route('user.index');
