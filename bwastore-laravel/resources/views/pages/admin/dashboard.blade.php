@@ -11,7 +11,7 @@
             <div class="container-fluid">
               <div class="dashboard-heading">
                 <h2 class="dashboard-title">Admin Dashboard</h2>
-                <p class="dashboard-subtitle">Administrator Panel</p>
+                <p class="dashboard-subtitle">Welcome to Administrator Panel</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">
