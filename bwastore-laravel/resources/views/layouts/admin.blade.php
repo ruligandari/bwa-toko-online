@@ -45,14 +45,14 @@
               Categories
             </a>
             <a
-              href="{{ route('category.index') }}"
+              href="{{ route('dashboard-transactions') }}"
               class="list-group-item list-group-item-action"
             >
               Transactions
             </a>
             <a
-              href="{{ route('dashboard-account') }}"
-              class="list-group-item list-group-item-action"
+              href="{{ route('user.index') }}"
+              class="list-group-item list-group-item-action {{ (request()->is('admin/user*')) ? 'active' : '' }}"
             >
               Users
             </a>
